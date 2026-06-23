@@ -124,6 +124,9 @@ also caught a real unit-mismatch bug **in its own significance gate** — which 
 why the current API is built to be misuse-proof. A tool that can falsify its own
 results is the only kind worth trusting.
 
+Full case study of the platform it came from:
+**https://rajushanigarapu.github.io/autonomous-investor-writeup/**
+
 ---
 
 ## Development
