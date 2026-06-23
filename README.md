@@ -1,5 +1,10 @@
 # falsify
 
+[![CI](https://github.com/RAJUSHANIGARAPU/falsify/actions/workflows/ci.yml/badge.svg)](https://github.com/RAJUSHANIGARAPU/falsify/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![dependencies](https://img.shields.io/badge/runtime%20deps-none-brightgreen)
+
 **Gate a backtested trading edge before you trust it.**
 
 A green backtest is easy to produce and almost always overfits. `falsify` is a
