@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "falsify"
+version = "0.1.0"
+description = "Gate a backtested trading edge before you trust it: multiple-testing, cost-floor, and autocorrelation checks in pure-stdlib Python."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Raju Shanigarapu" }]
+keywords = [
+  "quant", "backtesting", "sharpe-ratio", "deflated-sharpe",
+  "overfitting", "multiple-testing", "newey-west", "finance", "research",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Office/Business :: Financial :: Investment",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/RAJUSHANIGARAPU/falsify"
+Issues = "https://github.com/RAJUSHANIGARAPU/falsify/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/falsify"]
