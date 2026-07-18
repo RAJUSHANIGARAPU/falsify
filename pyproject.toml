@@ -15,7 +15,13 @@ keywords = [
   "overfitting", "multiple-testing", "newey-west", "finance", "research",
 ]
 classifiers = [
+  "Development Status :: 4 - Beta",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "License :: OSI Approved :: MIT License",
   "Topic :: Office/Business :: Financial :: Investment",
   "Intended Audience :: Financial and Insurance Industry",
