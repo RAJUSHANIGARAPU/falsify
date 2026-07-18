@@ -136,6 +136,27 @@ pip install -e ".[dev]"
 pytest
 ```
 
+## Releasing
+
+Publishing to PyPI is automated via GitHub Actions using
+[PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/) (OIDC) — no API
+token is stored in the repo. Every push builds and `twine check`s the distribution in
+CI, so `main` is always release-ready.
+
+To cut a release:
+
+1. **One-time:** on PyPI, create the `falsify` project's Trusted Publisher pointing at
+   this repo, workflow `publish.yml`, and environment `pypi`.
+2. Bump `version` in `pyproject.toml`, commit, and tag (`git tag v0.1.1 && git push --tags`).
+3. Publish a GitHub Release for that tag — the `Publish to PyPI` workflow builds and
+   uploads automatically.
+
+After the first release, install with:
+
+```bash
+pip install falsify
+```
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
