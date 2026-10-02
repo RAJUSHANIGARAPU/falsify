@@ -31,13 +31,27 @@ backtest most often fools you — and returns a blunt `PASS` / `WEAK` / `FAIL`.
 
 ## Install
 
+`falsify` is **not on PyPI**. The name `falsify` there belongs to an unrelated
+project, so `pip install falsify` installs a different package. Install from source:
+
 ```bash
-pip install -e .          # from a clone
-# or, once published:
-# pip install falsify
+pip install git+https://github.com/RAJUSHANIGARAPU/falsify
+```
+
+or, from a clone (editable, for development):
+
+```bash
+git clone https://github.com/RAJUSHANIGARAPU/falsify
+cd falsify
+pip install -e .
 ```
 
 Python ≥ 3.9. Runtime dependencies: **none**.
+
+Not to be confused with [`falsify-quant`](https://pypi.org/project/falsify-quant/),
+a separate AGPL-licensed CLI (numpy/scipy) that scores a strategy file 0–100 across
+seven checks; this project is an MIT, dependency-free library of three gates you call
+on return series you already have.
 
 ---
 
@@ -65,11 +79,24 @@ nw = newey_west_tstat(best)
 print(nw["t_stat"], "vs naive", nw["iid_t"])   # HAC t can be much smaller
 ```
 
-Run the worked example (kills a noisy "edge", confirms a clean one, no data needed):
+Run the worked example (no data needed):
 
 ```bash
 python examples/synthetic_demo.py
 ```
+
+```
+candidate                verdict    DSR  net/trade    NW t
+------------------------------------------------------------
+clean low-noise edge     PASS     1.000    +0.327%  +20.40
+noisy 'edge'             WEAK     0.928    +0.592%   +2.61
+```
+
+Both candidates have the same mean return per trade. The clean one passes. The noisy
+one clears the cost floor, but its deflated Sharpe (0.928) sits between the `WEAK`
+threshold (0.90) and the `PASS` threshold (0.95), so it is held at `WEAK` and not
+promoted. It is not outright `FAIL`ed; that needs a deflated Sharpe below 0.90 or a
+cost-floor failure.
 
 ---
 
@@ -145,17 +172,15 @@ CI, so `main` is always release-ready.
 
 To cut a release:
 
-1. **One-time:** on PyPI, create the `falsify` project's Trusted Publisher pointing at
+> **Blocked until a PyPI name is chosen.** `falsify` is already taken on PyPI by an
+> unrelated project, so the steps below cannot publish under the current name. The
+> project must be renamed in `pyproject.toml` (and in `publish.yml`) first.
+
+1. **One-time:** on PyPI, create the project's Trusted Publisher pointing at
    this repo, workflow `publish.yml`, and environment `pypi`.
 2. Bump `version` in `pyproject.toml`, commit, and tag (`git tag v0.1.1 && git push --tags`).
 3. Publish a GitHub Release for that tag — the `Publish to PyPI` workflow builds and
    uploads automatically.
-
-After the first release, install with:
-
-```bash
-pip install falsify
-```
 
 ## License
 

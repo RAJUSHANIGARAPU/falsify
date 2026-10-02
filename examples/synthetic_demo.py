@@ -1,12 +1,12 @@
-"""Worked example — kill a noisy 'edge', confirm a clean one. No external data.
+"""Worked example: confirm a clean edge, hold a noisy one at WEAK. No external data.
 
     python examples/synthetic_demo.py   (after: pip install -e .)
 
 Two candidates with the SAME positive mean per-trade return: one with low noise
 (a genuine small edge) and one with 12x the dispersion (noise dressed up as an
 edge). Each is judged against eight weaker variants you "also tried". The gate
-passes the clean one and refuses the noisy one — and Newey-West shows how much
-of a naive t-stat is real.
+passes the clean one and holds the noisy one at WEAK instead of passing it — and
+Newey-West shows how much of a naive t-stat is real.
 """
 import random
 
