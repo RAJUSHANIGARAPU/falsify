@@ -31,8 +31,10 @@ backtest most often fools you — and returns a blunt `PASS` / `WEAK` / `FAIL`.
 
 ## Install
 
-`falsify` is **not on PyPI**. The name `falsify` there belongs to an unrelated
-project, so `pip install falsify` installs a different package. Install from source:
+The PyPI distribution name is **`falsify-edge`**; the import name stays `falsify`.
+The name `falsify` on PyPI belongs to an unrelated project, so `pip install falsify`
+installs a different package. Until the first `falsify-edge` release is out, install
+from source:
 
 ```bash
 pip install git+https://github.com/RAJUSHANIGARAPU/falsify
@@ -172,11 +174,7 @@ CI, so `main` is always release-ready.
 
 To cut a release:
 
-> **Blocked until a PyPI name is chosen.** `falsify` is already taken on PyPI by an
-> unrelated project, so the steps below cannot publish under the current name. The
-> project must be renamed in `pyproject.toml` (and in `publish.yml`) first.
-
-1. **One-time:** on PyPI, create the project's Trusted Publisher pointing at
+1. **One-time:** on PyPI, add a pending Trusted Publisher for project `falsify-edge` pointing at
    this repo, workflow `publish.yml`, and environment `pypi`.
 2. Bump `version` in `pyproject.toml`, commit, and tag (`git tag v0.1.1 && git push --tags`).
 3. Publish a GitHub Release for that tag — the `Publish to PyPI` workflow builds and

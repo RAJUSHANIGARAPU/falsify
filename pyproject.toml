@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "falsify"
+name = "falsify-edge"
 version = "0.1.0"
 description = "Gate a backtested trading edge before you trust it: multiple-testing, cost-floor, and autocorrelation checks in pure-stdlib Python."
 readme = "README.md"
